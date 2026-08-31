@@ -1,0 +1,94 @@
+{
+  "models_evaluated": [
+    "Historical Average",
+    "Ridge Regression",
+    "Random Forest",
+    "LightGBM Regressor",
+    "XGBoost Regressor",
+    "LambdaRank Ranking",
+    "PyTorch Embedding NN"
+  ],
+  "test_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "overall_summary": [
+    {
+      "model": "Historical Average",
+      "mae": 3.3368392434228875,
+      "rmse": 4.512851629322912,
+      "spearman_rho": 0.6328724162822752,
+      "kendall_tau": 0.4885600832873604,
+      "top1_accuracy": 0.5032507321110262,
+      "top3_accuracy": 0.6510323826500297,
+      "race_kendall_tau": 0.5095051484176871
+    },
+    {
+      "model": "LightGBM Regressor",
+      "mae": 3.401035735583954,
+      "rmse": 4.387264826829608,
+      "spearman_rho": 0.6562366890914173,
+      "kendall_tau": 0.5069163424725517,
+      "top1_accuracy": 0.4433608670741024,
+      "top3_accuracy": 0.6736654889228417,
+      "race_kendall_tau": 0.5263302587714644
+    },
+    {
+      "model": "Ridge Regression",
+      "mae": 3.4014110708694125,
+      "rmse": 4.425199337988292,
+      "spearman_rho": 0.6418654310740469,
+      "kendall_tau": 0.4955790919905111,
+      "top1_accuracy": 0.53676072701808,
+      "top3_accuracy": 0.6292547321959087,
+      "race_kendall_tau": 0.5164288794997
+    },
+    {
+      "model": "XGBoost Regressor",
+      "mae": 3.4027729630470276,
+      "rmse": 4.372282553962515,
+      "spearman_rho": 0.6582536784626842,
+      "kendall_tau": 0.5110196577433728,
+      "top1_accuracy": 0.5255522663610899,
+      "top3_accuracy": 0.6804521050844579,
+      "race_kendall_tau": 0.529527599851693
+    },
+    {
+      "model": "PyTorch Embedding NN",
+      "mae": 3.4385733008384705,
+      "rmse": 4.758564717351658,
+      "spearman_rho": 0.6127178614794752,
+      "kendall_tau": 0.4638540503432297,
+      "top1_accuracy": 0.44039263432645787,
+      "top3_accuracy": 0.6471795157456921,
+      "race_kendall_tau": 0.4854372869562498
+    },
+    {
+      "model": "Random Forest",
+      "mae": 3.446206713264159,
+      "rmse": 4.393420749554874,
+      "spearman_rho": 0.6542949063863053,
+      "kendall_tau": 0.5069069164040731,
+      "top1_accuracy": 0.5141329258976318,
+      "top3_accuracy": 0.6719651875901875,
+      "race_kendall_tau": 0.5269046055423764
+    },
+    {
+      "model": "LambdaRank Ranking",
+      "mae": 4.122696038901769,
+      "rmse": 5.062056267901442,
+      "spearman_rho": 0.6494759019899592,
+      "kendall_tau": 0.5031282612990257,
+      "top1_accuracy": 0.5646207346574994,
+      "top3_accuracy": 0.6746350055173584,
+      "race_kendall_tau": 0.5240735132055859
+    }
+  ],
+  "best_model_by_mae": "Historical Average"
+}

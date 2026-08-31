@@ -1,0 +1,88 @@
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  artifacts_dir: "models"
+  target_circuit_id: 14  # Monza
+  target_race_id: 1181   # 2026 Italian GP
+  target_season: 2026
+  target_round: 13
+  start_year: 1980       # Historical starting point for feature engineering
+
+features:
+  rolling_windows: [3, 5, 10]
+  decay_alphas:
+    driver_form: 0.35
+    constructor_form: 0.30
+    circuit_history: 0.20
+  monza_recency_half_life_years: 5.0
+  min_career_races: 3
+
+models:
+  random_state: 42
+  backtest_seasons: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+  
+  lightgbm:
+    n_estimators: 300
+    learning_rate: 0.03
+    max_depth: 6
+    num_leaves: 31
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_samples: 15
+    random_state: 42
+    
+  xgboost:
+    n_estimators: 250
+    learning_rate: 0.03
+    max_depth: 5
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+    
+  random_forest:
+    n_estimators: 200
+    max_depth: 10
+    min_samples_split: 5
+    random_state: 42
+
+  neural_net:
+    embedding_dim: 16
+    hidden_dims: [128, 64, 32]
+    dropout: 0.2
+    learning_rate: 0.001
+    weight_decay: 0.0001
+    batch_size: 64
+    epochs: 45
+    
+  dnf_model:
+    n_estimators: 150
+    learning_rate: 0.04
+    max_depth: 4
+    scale_pos_weight: 3.5
+
+simulation:
+  n_simulations: 10000
+  performance_std: 1.45
+  monza_grid_importance: 0.60  # Grid influence on high-speed low-downforce Monza
+  random_seed: 42
+  points_system:
+    1: 25
+    2: 18
+    3: 15
+    4: 12
+    5: 10
+    6: 8
+    7: 6
+    8: 4
+    9: 2
+    10: 1
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  title: "F1 Race Prediction & Simulation API"
+  version: "1.0.0"
+
+mlflow:
+  experiment_name: "f1_monza_race_prediction"
+  tracking_uri: "artifacts/mlruns"
